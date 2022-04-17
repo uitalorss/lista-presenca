@@ -3,3 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  background: #ecf0f1;
+}
+
+body, input, button{
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
