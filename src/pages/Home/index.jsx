@@ -22,7 +22,13 @@ export function Home() {
   
   return (
     <div className='container'>
-      <h1>Lista de Presença</h1>
+      <header>
+        <h1>Lista de Presença</h1>
+        <div>
+          <strong>Uítalo Souza</strong>
+          <img src="https://github.com/uitalorss.png" alt="" />
+        </div>
+      </header>
       <input 
         type="text" 
         placeholder="Digite o nome."
@@ -31,7 +37,7 @@ export function Home() {
       <button onClick={handleAddStudent}>Adicionar</button>
       
       {listStudents.map((itemStudent) => {
-          return <Card name={itemStudent.name} time={itemStudent.time}/>
+          return <Card key={itemStudent.time} name={itemStudent.name} time={itemStudent.time}/>
       })}
 
     </div>
