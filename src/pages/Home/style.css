@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 84px 0;
+  margin: 84px 0 16px 0;
 }
 
 .container header div{

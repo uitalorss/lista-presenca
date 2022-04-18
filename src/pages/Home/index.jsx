@@ -1,12 +1,16 @@
 import './style.css'
 
 import { Card } from '../../components/Card'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function Home() {
 
   const [student, setStudent] = useState();
   const [listStudents, setListStudents] = useState([])
+  const [user, setUser] = useState({
+    name: '',
+    avatar: ''
+  })
 
   function handleAddStudent(){
     const newStudent = {
@@ -19,14 +23,26 @@ export function Home() {
     };
     setListStudents([...listStudents, newStudent])
   }
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/uitalorss')
+      .then(response => response.json())
+      .then(data => {
+        setUser({
+          name: data.name,
+          avatar: data.avatar_url
+        })
+      })
+      .catch(error => console.error(error))
+  })  
   
   return (
     <div className='container'>
       <header>
         <h1>Lista de Presença</h1>
         <div>
-          <strong>Uítalo Souza</strong>
-          <img src="https://github.com/uitalorss.png" alt="" />
+          <strong>{user.name}</strong>
+          <img src={user.avatar} alt="foto-do-perfil" />
         </div>
       </header>
       <input 
